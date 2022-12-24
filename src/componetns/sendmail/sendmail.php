@@ -10,29 +10,29 @@
 	$mail->setLanguage('ru', 'phpmailer/language/');
 	$mail->IsHTML(true);
 
-	//От кого письмо
-	$mail->setFrom('from@gmail.com', 'Фрилансер по жизни'); // Указать нужный E-mail
-	//Кому отправить
-	$mail->addAddress('to@gmail.com'); // Указать нужный E-mail
-	//Тема письма
-	$mail->Subject = 'Привет! Это "Фрилансер по жизни"';
+	
+	$mail->setFrom('from@gmail.com', 'ME'); 
 
-	//Тело письма
-	$body = '<h1>Встречайте супер письмо!</h1>';
+	$mail->addAddress('to@gmail.com'); 
+
+	$mail->Subject = 'Hi';
+
+	
+	$body = '<h1>Letter</h1>';
 
 	//if(trim(!empty($_POST['name']))){
 		//$body.='';
 	//}	
 	
 	/*
-	//Прикрепить файл
+	
 	if (!empty($_FILES['image']['tmp_name'])) {
-		//путь загрузки файла
+		
 		$filePath = __DIR__ . "/files/sendmail/attachments/" . $_FILES['image']['name']; 
-		//грузим файл
+		
 		if (copy($_FILES['image']['tmp_name'], $filePath)){
 			$fileAttach = $filePath;
-			$body.='<p><strong>Фото в приложении</strong>';
+			$body.='<p><strong>Photo</strong>';
 			$mail->addAttachment($fileAttach);
 		}
 	}
@@ -40,11 +40,11 @@
 
 	$mail->Body = $body;
 
-	//Отправляем
+
 	if (!$mail->send()) {
-		$message = 'Ошибка';
+		$message = 'Error';
 	} else {
-		$message = 'Данные отправлены!';
+		$message = 'Send!';
 	}
 
 	$response = ['message' => $message];
